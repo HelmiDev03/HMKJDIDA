@@ -12,8 +12,8 @@ import random
 def index(request):
     user_object = User.objects.get(username=request.user.username)
     user_profile = Profile.objects.get(user=user_object)
-
-    user_following_list = []
+    #intialise user_following_list with only the current user
+    user_following_list = [request.user.username]
     feed = []
 
     user_following = FollowersCount.objects.filter(follower=request.user.username)
@@ -23,9 +23,8 @@ def index(request):
 
     for usernames in user_following_list:
         feed_lists = Post.objects.filter(user=usernames)
-        my_lists = Post.objects.filter(user=request.user.username)
         feed.append(feed_lists)
-        feed.append(my_lists)
+        
 
     feed_list = list(chain(*feed))
 
@@ -39,8 +38,10 @@ def index(request):
     
     new_suggestions_list = [x for x in list(all_users) if (x not in list(user_following_all))]
     current_user = User.objects.filter(username=request.user.username)
-    final_suggestions_list = new_suggestions_list
+    final_suggestions_list = [x for x in list(new_suggestions_list) if ( x not in list(current_user))]
     random.shuffle(final_suggestions_list)
+    # i want also to add the user profile to the suggestion list
+    
 
     username_profile = []
     username_profile_list = []
@@ -62,6 +63,7 @@ def index(request):
 
 
     return render(request, 'index.html', {'user_profile': user_profile, 'posts':feed_list, 'suggestions_username_profile_list': suggestions_username_profile_list[:4]})
+    
 
 
 
