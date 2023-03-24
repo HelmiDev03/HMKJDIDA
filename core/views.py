@@ -168,7 +168,13 @@ def upload(request):
 
     if request.method == 'POST':
         user = request.user.username
-        image = request.FILES.get('image_upload')
+        #check if user has uploaded an image
+        if request.FILES.get('image_upload')!= None:
+            image = request.FILES.get('image_upload')
+        else:
+            #if user has not uploaded an image, use the default image
+            image = 'default.jpg'
+
         caption = request.POST['caption']
 
         new_post = Post.objects.create(user=user, image=image, caption=caption)
