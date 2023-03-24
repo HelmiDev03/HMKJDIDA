@@ -27,7 +27,24 @@ environ.Env.read_env()
 SECRET_KEY = 'django-insecure-7__j1#b5a_89-7vc+%^a(7&a$6owleabii+mjny3nmonc$_-l@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# settings.py
+
+DEBUG = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}
+
 
 ALLOWED_HOSTS = ['*']
 
