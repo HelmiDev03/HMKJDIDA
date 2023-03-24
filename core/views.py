@@ -6,14 +6,30 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile,Post,LikePost,FollowersCount
 from itertools import chain
 import random
+import cloudinary_storage
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary.models import CloudinaryField
+from cloudinary import CloudinaryImage
+from cloudinary.uploader import upload
+from cloudinary.utils import cloudinary_url
+from operator import attrgetter
+
+def order_posts_by_created_at(posts):
+    ordered_posts = sorted(posts, key=attrgetter('created_at'))
+    return ordered_posts
+
+
+
 
 # Create your views here.
 @login_required(login_url='signin')
 def index(request):
     user_object = User.objects.get(username=request.user.username)
     user_profile = Profile.objects.get(user=user_object)
-
-    user_following_list = []
+    #intialise user_following_list with only the current user
+    user_following_list = [request.user.username]
     feed = []
 
     user_following = FollowersCount.objects.filter(follower=request.user.username)
@@ -23,11 +39,11 @@ def index(request):
 
     for usernames in user_following_list:
         feed_lists = Post.objects.filter(user=usernames)
-        my_lists = Post.objects.filter(user=request.user.username)
         feed.append(feed_lists)
-        feed.append(my_lists)
+        
 
     feed_list = list(chain(*feed))
+    feed_list = sorted(feed_list, key=attrgetter('created_at'))
 
     # user suggestion starts
     all_users = User.objects.all()
@@ -41,6 +57,8 @@ def index(request):
     current_user = User.objects.filter(username=request.user.username)
     final_suggestions_list = [x for x in list(new_suggestions_list) if ( x not in list(current_user))]
     random.shuffle(final_suggestions_list)
+    # i want also to add the user profile to the suggestion list
+    
 
     username_profile = []
     username_profile_list = []
@@ -317,4 +335,15 @@ def testhome(request):
         'user_followers': user_followers,
         'user_following': user_following,
     }
-    return render(request, 'testprofile.html', context)        
+    return render(request, 'testprofile.html', context)    
+
+
+@login_required(login_url='signin')
+def removepost(request):
+    if request.method == 'POST':
+        post_id = request.POST['post_id']
+        post = Post.objects.get(id=post_id)
+        post.delete()
+        return redirect('/')
+    else:
+        return redirect('/')
