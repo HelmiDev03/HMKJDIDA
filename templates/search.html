@@ -49,7 +49,11 @@
                         <a href="#">
                             <div style="display:flex; flex-direction:column;transform:translatey(-10px);">
                             <h4 style="color:white;">@{{user_profile.user.username}}</h4>
+                            {% if user_profile.profileimg  %}
                             <img style="transform:translatex(20px);" src="{{user_profile.profileimg.url}}" class="header-avatar" alt="">
+                            {% else %}
+                            <img  class="header-avatar" alt="" src="{% static 'assets/images/blank-profile-picture.png' %}" />
+                            {% endif %}
                             </div>
                         </a>
                         <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
@@ -199,8 +203,13 @@
                         
                         {% for users in username_profile_list %}
                         <section style="background-color:#15202b;"  class="search-result-item">
+                            {% if users.profileimg  %}
                             <a class="image-link" href="/profile/{{users.user}}"><img  class="image" src="{{users.profileimg.url}}">
                             </a>
+                            {% else %}
+                            <a class="image-link" href="/profile/{{users.user}}"><img  class="image" src="{% static 'assets/images/blank-profile-picture.png' %}">
+                            </a>
+                            {% endif %}
                             <div class="search-result-item-body">
                                 <div class="row">
                                     <div class="col-sm-9">
