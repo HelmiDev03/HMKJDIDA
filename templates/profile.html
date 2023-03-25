@@ -25,8 +25,11 @@
 		<div class="profile">
 
 			<div class="profile-image">
-
-				<img src="{{user_profile.profileimg.url}}" height="100" width ="100"alt="">
+                {% if user_profile.profileimg %}
+				    <img src="{{user_profile.profileimg.url}}" height="100" width ="100"alt="">
+                {% else %}
+                <img class="bg-gray-200 rounded-full w-10 h-10" src="{% static 'assets/images/blank-profile-picture.png' %}" >
+                {% endif %}
 
 			</div>
 
