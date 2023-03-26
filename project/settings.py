@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 import cloudinary_storage
+import pydot
+import pickle
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -61,6 +63,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary_storage',
     'cloudinary',
+    'django_extensions',
+    'django.contrib.humanize',
     
     'core',
 ]
@@ -170,3 +174,10 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Set the maximum size of uploaded files to 10MB
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10 * 1024 * 1024 bytes
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
+
+DATE_FORMAT = 'd F Y'
+TIME_FORMAT = 'H:i'

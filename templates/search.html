@@ -1,4 +1,6 @@
 {% load static %}
+{% load tz %}
+{% load humanize %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,9 +60,9 @@
                         </a>
                         <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
                             <ul style="z-index:100;" >
-                                <li><a href="/gotoprofile"> See Profile </a> </li>
-                                <li><a href="/settings"> Account setting </a> </li>
-                                <li><a href="logout"> Log Out</a></li>
+                                <li><a href="/gotoprofile"><i class="fa fa-user fa-1x"></i>See Profile </a> </li>
+                                <li><a href="/settings"><i class="fa fa-cog"></i>Account settings </a> </li>
+                                <li><a href="logout"><i class="fa fa-sign-out"></i>Log Out</a></li>
 
                                 
                             </ul>
@@ -181,7 +183,7 @@
                 <div class="container">
                 <div class="row ng-scope">
                     <div class="col-md-3 col-md-push-9">
-                        <h3><a href="/">Go Back To News Feed</a></h3>
+                        <h3><a href="/"><i class="fa fa-arrow-left"></i>Go Back To News Feed</a></h3>
 
                         <br>
                         <!-- <p class="text-muted fs-mini">Listed content is categorized by the following groups:</p> -->
@@ -200,7 +202,7 @@
                     </div>
                     <div class="col-md-9 col-md-pull-3">
                         <!-- <p class="search-results-count">About 94 700 000 (0.39 sec.) results</p> -->
-                        
+                        {% if  username_profile_list %}
                         {% for users in username_profile_list %}
                         <section style="background-color:#15202b;"  class="search-result-item">
                             {% if users.profileimg  %}
@@ -225,6 +227,21 @@
                             </div>
                         </section>
                         {% endfor %}
+                        <div style="display:flex;justify-content:center; transform:translatey(300px);" class="lg:mb-5 py-3 uk-link-reset" style="">
+                            <div class="flex flex-col items-center justify-between lg:flex-row max-w-6xl mx-auto lg:space-y-0 space-y-3">
+                                
+                                <p class="capitalize"> © copyright 2023 by HMKSocialHub</p>
+                            </div>
+                        </div>
+                        {% else %}
+                         <h3>User Doesn't Exist</h3>
+                        <div style="display:flex;justify-content:center; transform:translatey(430px);" class="lg:mb-5 py-3 uk-link-reset" style="">
+                            <div class="flex flex-col items-center justify-between lg:flex-row max-w-6xl mx-auto lg:space-y-0 space-y-3">
+                                
+                                <p class="capitalize"> © copyright 2023 by HMKSocialHub</p>
+                            </div>
+                        </div>
+                        {% endif %}
                         
                         <!-- <div class="text-align-center">
                             <ul class="pagination pagination-sm">
@@ -273,12 +290,7 @@
 
 
     <script src="{% static '../../unpkg.com/ionicons%405.2.3/dist/ionicons.js' %}"></script>
-    <div style="display:flex;justify-content:center; transform:translatey(35px);" class="lg:mb-5 py-3 uk-link-reset" style="transform:translatey(60px);">
-        <div class="flex flex-col items-center justify-between lg:flex-row max-w-6xl mx-auto lg:space-y-0 space-y-3">
-            
-            <p class="capitalize"> © copyright 2023 by HMKSocialHub</p>
-        </div>
-    </div>
+   
 </body>
 
 

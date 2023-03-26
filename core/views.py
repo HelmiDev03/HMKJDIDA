@@ -62,7 +62,7 @@ def index(request):
 
     username_profile = []
     username_profile_list = []
-
+    
     for users in final_suggestions_list:
         username_profile.append(users.id)
 
@@ -80,7 +80,6 @@ def index(request):
 
 
     return render(request, 'index.html', {'user_profile': user_profile, 'posts':feed_list, 'suggestions_username_profile_list': suggestions_username_profile_list[:4]})
-    
 
 
 

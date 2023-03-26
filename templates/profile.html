@@ -40,7 +40,7 @@
 					{% csrf_token %}
 
                 {% if user_object.username == user.username %}
-					<a style="color:white; font-weight:bold; font-size:19;"  href="/settings" data-ripple="">Account Settings</a>
+					<a style="color:white; font-weight:bold; font-size:19;"  href="/settings" data-ripple=""><i class="fa fa-cog"></i>Account Settings</a>
 					{% else %}
 					<a style="color:white;"  data-ripple=""><button type="submit" style="background-color: #ffc0cb; border: #ffc0cb;">{{button_text}}</button></a>
 					{% endif %}
@@ -80,7 +80,8 @@
 			<div class="profile-bio">
 
 				<p >{{user_profile.bio}}</p>
-                <h3><a style=" color:#1d9bf0;" href="/">Home</a></h3>
+                <h3 style=" color:#1d9bf0;"><i class="fa fa-home"></i>
+                    <a style=" color:#1d9bf0;" href="/">Home</a></h3>
 
 			</div>
 
@@ -100,15 +101,25 @@
 
 			<div class="gallery-item" tabindex="0">
                 {% for post in user_posts %}
-
+                 {% if post.image.name != 'default.jpg' %}
 				<li>
                     <a class="strip" href="{{post.image.url}}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
                         <img src="{{post.image.url}}" style="height: 250px; max-width: 100%;" alt=""></a>
                 </li>
+                {% endif%}
                 {% endfor %}
 
 				
 			</div>
+
+
+
+            <div  class="lg:mb-5 py-3 uk-link-reset" style="transform:translatey(260px); display:flex;justify-content:center;">
+                <div class="flex flex-col items-center justify-between lg:flex-row max-w-6xl mx-auto lg:space-y-0 space-y-3">
+                    
+                    <p class="capitalize"> © copyright 2023 by HMKSocialHub</p>
+                </div>
+            </div>
 
 			
 
@@ -121,12 +132,7 @@
 	<!-- End of container -->
 
 </main>
-<div style="display:flex;justify-content:center; transform:translatey(35px);" class="lg:mb-5 py-3 uk-link-reset" style="transform:translatey(60px);">
-    <div class="flex flex-col items-center justify-between lg:flex-row max-w-6xl mx-auto lg:space-y-0 space-y-3">
-        
-        <p class="capitalize"> © copyright 2023 by HMKSocialHub</p>
-    </div>
-</div>
+
 
 	<script data-cfasync="false" src="{% static '../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script>
 	<script src="{% static 'js/main.min.js' %}"></script>

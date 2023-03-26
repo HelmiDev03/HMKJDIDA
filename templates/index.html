@@ -1,4 +1,6 @@
 {% load static %}
+{% load tz %}
+{% load humanize %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +15,13 @@
     <!--meta for encoding caracter and arabic text-->
     <meta charset="utf-8" /> 
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amiri&display=swap">
+    <!--add font awsome library-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-YgmVop+3q+jY8bZ3Q2lL/mWeDTdD4+4XhJIVcq1SSz7V0mmS+u5PmlhZ0tL5gzllglLyZWf/lA8LMC/okn6D7g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css" integrity="sha384-1OtbN0cVEbRz48fW92pTtgmLJ67TeyBtZ3qWftYbYodSyBt2aVRxvqb8z2uvbLJh" crossorigin="anonymous">
+
+
 
 
 
@@ -23,9 +32,12 @@
     <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body style="overflow-x:hidden; ">
+    
 
             <header style="height:70px;background-color:#15202b; ">
                 <div class="header_inner" style="background-color:#15202b; transform:translatey(15px); ">
@@ -64,10 +76,10 @@
                             </div>
                         </a>
                         <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
-                            <ul style="z-index:100;" >
-                                <li><a href="/gotoprofile"> See Profile </a> </li>
-                                <li><a href="/settings"> Account setting </a> </li>
-                                <li><a href="logout"> Log Out</a></li>
+                            <ul style="z-index:100; transform:translatex(10%);" >
+                                <li><a href="/gotoprofile"><i class="fa fa-user fa-1x"></i>See Profile </a> </li>
+                                <li><a href="/settings"><i class="fa fa-cog"></i>Account settings </a> </li>
+                                <li><a href="logout"><i class="fa fa-sign-out"></i>Log Out</a></li>
 
                                 
                             </ul>
@@ -87,7 +99,7 @@
                     </style>  
                       <div id="ov" class="op"></div>
                       <div style=" border-radius:20px;background-color:#15202b;"class="fm create-post">
-                          <div style="background-color:white;border-radius:20px" class="_hp">Get In Touch With People</div>
+                          
                           <div class="_bp">
                             <form action="upload" method="POST" enctype="multipart/form-data" >
                                   {% csrf_token %}
@@ -151,7 +163,7 @@
                                 </a> -->
                                   <div class="info-post" style="display:flex;flex-direction:column;">   
                                 <span  class="block font-semibold "><a style="color:#eff3f4;"  href="/profile/{{post.user}}">@{{post.user}}</a></span><br>
-                                <span style="color:#eff3f4; font-size:12" class="block text-sm text-gray-500">{{post.created_at}}</span>
+                                <span style="color:#eff3f4; font-size:12" class="block text-sm text-gray-500">{{ post.created_at|date:"d F Y" }} at {{ post.created_at|time:"H:i" }}</span>
                                  </div>
                                  
                             </div>
@@ -174,7 +186,7 @@
 
                         <div  style="display:flex; justify-content:center;"  uk-lightbox>
                             
-                                <img style="max-height:230px; " src="{{post.image.url}}" alt="">
+                                <img style="max-height:230px;  " src="{{post.image.url}}" alt="">
                             
                         </div>
                         
@@ -296,7 +308,7 @@
                                     </a>
                                     <div class="flex flex-col">
                                         <span class="block capitalize font-semibold"> {{suggestion.user}} </span>
-                                        <span class="block capitalize text-sm"> {{suggestion.bio}} </span>
+                                        
                                     </div>
                                 </div>
                                 
@@ -346,6 +358,13 @@
 
     <script src="{% static '../../unpkg.com/ionicons%405.2.3/dist/ionicons.js' %}"></script>
 </body>
+<style>
+    span.button, button.button{
+        background-color: #1d9bf0;
+        
+    }
+  
+</style>
 
 
 </html>

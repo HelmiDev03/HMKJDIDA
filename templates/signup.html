@@ -31,9 +31,9 @@
 
                 <div class="flex items-center lg:justify-between justify-around">
 
-                    <a href="trending.html">
+                    
                         <b><h1 style="font-size: 1.5rem;">HMKSocialHub</h1></b>
-                    </a>
+                    
                     <img height="55" width="55" src="{% static 'assets/images/logodjango.png' %}">
 
                     <div class="capitalize flex font-semibold hidden lg:block my-2 space-x-3 text-center text-sm">
@@ -152,7 +152,19 @@
     <script src="{% static 'assets/js/uikit.js' %}"></script>
     <script src="{% static 'assets/js/simplebar.js' %}"></script>
     <script src="{% static 'assets/js/custom.js' %}"></script>
-
+    <style>
+        span.button, button.button{
+            background-color: #1d9bf0;
+            
+        }
+        .to-red-400 {
+            --tw-gradient-to: #1d9bf0;
+        }
+        .from-pink-500 {
+            --tw-gradient-from: #467f89;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(236, 72, 153, 0));
+        }
+    </style>
 
 </body>
 
