@@ -100,15 +100,20 @@ def settings(request):
             bio = request.POST['bio']
             location = request.POST['location']
             email = request.POST['email']
-            # take the email and change the first letter into small letter 
+            username= request.POST['username']
+            if (User.objects.filter(username=username).exists() or User.objects.filter(username=username.lower()).exists() or User.objects.filter(username=username.capitalize()).exists()) and user.username != username:
+                messages.error(request, 'Username Taken')
+            else:
+                user.username = username
+                user.save()
             
 
             
 
             user_profile.profileimg = image
             user_profile.bio = bio
-            if User.objects.filter(email=email).exists() or User.objects.filter(email=email.lower()).exists() or User.objects.filter(email=email.capitalize()).exists():
-                messages.info(request, 'Email Taken')
+            if (User.objects.filter(email=email).exists() or User.objects.filter(email=email.lower()).exists() or User.objects.filter(email=email.capitalize()).exists()) and user.email != email:
+                messages.error(request, 'Email Taken')
             else:
                 user.email = email
                 user.save()
@@ -121,8 +126,14 @@ def settings(request):
             bio = request.POST['bio']
             email = request.POST['email']
             location = request.POST['location']
+            username= request.POST['username']
+            if (User.objects.filter(username=username).exists() or User.objects.filter(username=username.lower()).exists() or User.objects.filter(username=username.capitalize()).exists()) and user.username != username:
+                messages.error(request, 'Username Taken')
+            else:
+                user.username = username
+                user.save()
             if User.objects.filter(email=email).exists():
-                    messages.info(request, 'Email Taken')
+                messages.error(request, 'Email Taken')
                 
             else:
                 user.email = email

@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import cloudinary_storage
 import pydot
 import pickle
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_extensions',
     'django.contrib.humanize',
+       
     
     'core',
 ]
@@ -78,6 +79,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -93,6 +95,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+               
             ],
         },
     },
@@ -197,7 +200,9 @@ EMAIL_USE_TLS = True
 
 
 PASSWORD_RESET_TIMEOUT_DAYS = 7
+    
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
  
 
 

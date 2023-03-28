@@ -1,4 +1,6 @@
+
 {% load static %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +25,7 @@
 
           
 
-            <div style="height: calc(100vh + 360px);margin-top: -90px;" class="container m-auto"> 
+            <div style="height: calc(100vh + 390px);margin-top: -90px;" class="container m-auto"> 
 
                 <h1  class="text-2xl leading-none text-gray-900 tracking-tight mt-3"><a href="/"><span style="color:#1d9bf0">News Feed</span><br></a>Account Settings for <b>{{user.username}}</b> </h1>
                 <!-- <ul class="mt-5 -mr-3 flex-nowrap lg:overflow-hidden overflow-x-scroll uk-tab">
@@ -59,21 +61,13 @@
                                 <input type="file" name="image" value="" class="shadow-none bg-gray-100">
                             </div>
                             <div class="col-span-2">
+                                <label for="">Username</label>
+                                <input type="text" name="username" value="{{user.username}}" class="shadow-none bg-gray-100" maxlength="8">
+                               
+                            <div class="col-span-2">
                                 <label for="">Email</label>
                                 <input type="email" name="email" value="{{user.email}}" class="shadow-none bg-gray-100">
-                                <div>
-                                    <style>
-                                        h5{
-                                            color: 
-                                            #425364;
-                                        }
-                                    </style>
-                                    
-                                    
-                                    {% for message in messages %}
-                                    <h5>{{message}}</h5>
-                                    {% endfor %}
-                                </div>
+                              
                                 
                             </div>
                             
@@ -85,7 +79,23 @@
                             <div class="col-span-2">
                                 <label for=""> Location</label>
                                 <input type="text" name="location" value="{{user_profile.location}}" class="shadow-none bg-gray-100">
-                            </div>
+                            </div><br>
+                                {% if messages %}
+                                    {% for message in messages %}
+                                   
+                                    
+                                  
+                                    <h5>{{message}}</h5>
+                                    <style>
+                                        h5{
+                                            color: 
+                                            #425364;
+                                        }
+                                    </style>
+                                    
+                                    {% endfor %}
+                                    {% endif %}
+                                </div>
                            
                             
                        </div> 
