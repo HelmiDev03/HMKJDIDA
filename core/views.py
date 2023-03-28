@@ -15,10 +15,15 @@ from cloudinary import CloudinaryImage
 from cloudinary.uploader import upload
 from cloudinary.utils import cloudinary_url
 from operator import attrgetter
+from django.urls import reverse
+
 
 def order_posts_by_created_at(posts):
     ordered_posts = sorted(posts, key=attrgetter('created_at'))
     return ordered_posts
+def order_pic_by_created_at(pics):
+    ordered_pics = sorted(pics, key=attrgetter('created_at'))
+    return ordered_pics    
 
 
 
@@ -86,6 +91,7 @@ def index(request):
 @login_required(login_url='signin')
 def settings(request):
     user_profile = Profile.objects.get(user=request.user)
+    user= User.objects.get(username=request.user.username)
 
     if request.method == 'POST':
         
@@ -93,20 +99,39 @@ def settings(request):
             image = user_profile.profileimg
             bio = request.POST['bio']
             location = request.POST['location']
+            email = request.POST['email']
+            # take the email and change the first letter into small letter 
+            
+
+            
 
             user_profile.profileimg = image
             user_profile.bio = bio
+            if User.objects.filter(email=email).exists() or User.objects.filter(email=email.lower()).exists() or User.objects.filter(email=email.capitalize()).exists():
+                messages.info(request, 'Email Taken')
+            else:
+                user.email = email
+                user.save()
+
+    
             user_profile.location = location
             user_profile.save()
         if request.FILES.get('image') != None:
             image = request.FILES.get('image')
             bio = request.POST['bio']
+            email = request.POST['email']
             location = request.POST['location']
-
+            if User.objects.filter(email=email).exists():
+                    messages.info(request, 'Email Taken')
+                
+            else:
+                user.email = email
+                user.save()
             user_profile.profileimg = image
             user_profile.bio = bio
             user_profile.location = location
             user_profile.save()
+
         
         return redirect('settings')
     return render(request, 'setting.html', {'user_profile': user_profile})
@@ -123,7 +148,7 @@ def signup(request):
             if len(password) < 8:
                 messages.info(request, 'Password must be at least 8 characters')
                 return redirect('signup')
-            if User.objects.filter(email=email).exists():
+            if User.objects.filter(email=email).exists() or User.objects.filter(email=email.lower()).exists() or User.objects.filter(email=email.capitalize()).exists():
                 messages.info(request, 'Email Taken')
                 return redirect('signup')
             elif User.objects.filter(username=username).exists():
@@ -231,6 +256,7 @@ def profile(request, pk):
     user_object = User.objects.get(username=pk)
     user_profile = Profile.objects.get(user=user_object)
     user_posts = Post.objects.filter(user=pk)
+    user_posts=order_pic_by_created_at(user_posts)
     user_post_length = len(user_posts)
 
     follower = request.user.username
@@ -347,3 +373,11 @@ def removepost(request):
         return redirect('/')
     else:
         return redirect('/')
+
+
+
+
+
+
+
+

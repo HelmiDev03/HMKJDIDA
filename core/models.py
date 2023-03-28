@@ -29,7 +29,8 @@ class Post(models.Model):
     user = models.CharField(max_length=100)
     image = models.ImageField(upload_to=rename_post_image)
     caption = models.TextField()
-    created_at = models.DateTimeField(default=datetime.now)
+    # i wanna get date like this 28-07-2023, 21:30
+    created_at = models.DateTimeField(auto_now_add=True)
     no_of_likes = models.IntegerField(default=0)
 
     def __str__(self):

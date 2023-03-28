@@ -23,7 +23,7 @@
 
           
 
-            <div class="container m-auto"> 
+            <div style="height: calc(100vh + 360px);margin-top: -90px;" class="container m-auto"> 
 
                 <h1  class="text-2xl leading-none text-gray-900 tracking-tight mt-3"><a href="/"><span style="color:#1d9bf0">News Feed</span><br></a>Account Settings for <b>{{user.username}}</b> </h1>
                 <!-- <ul class="mt-5 -mr-3 flex-nowrap lg:overflow-hidden overflow-x-scroll uk-tab">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="bg-white rounded-md lg:shadow-lg shadow col-span-2">
                         
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form  action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                        <div style="background-color:#15202b;" class="grid grid-cols-2 gap-3 lg:p-6 p-4">
                            
@@ -59,13 +59,34 @@
                                 <input type="file" name="image" value="" class="shadow-none bg-gray-100">
                             </div>
                             <div class="col-span-2">
+                                <label for="">Email</label>
+                                <input type="email" name="email" value="{{user.email}}" class="shadow-none bg-gray-100">
+                                <div>
+                                    <style>
+                                        h5{
+                                            color: 
+                                            #425364;
+                                        }
+                                    </style>
+                                    
+                                    
+                                    {% for message in messages %}
+                                    <h5>{{message}}</h5>
+                                    {% endfor %}
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="col-span-2">
                                 <label for="about">Bio</label>  
-                                <textarea id="about" name="bio" rows="3"  class="shadow-none bg-gray-100">{{user_profile.bio}}</textarea>
+                                <textarea style="padding:14px;" id="about" name="bio" rows="3"  class="shadow-none bg-gray-100">{{user_profile.bio}}</textarea>
                             </div> 
+                            
                             <div class="col-span-2">
                                 <label for=""> Location</label>
                                 <input type="text" name="location" value="{{user_profile.location}}" class="shadow-none bg-gray-100">
                             </div>
+                           
                             
                        </div> 
     
@@ -78,52 +99,7 @@
                     </div>
 
                     <!-- <div>
-                        <h3 class="text-xl mb-2"> Privacy</h3>
-                        <p> </p>
-                    </div>
-                    <div class="bg-white rounded-md lg:shadow-lg shadow lg:p-6 p-4 col-span-2">
-
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4> Who can follow me ?</h4>
-                                <div>  </div>
-                            </div>
-                            <div class="switches-list -mt-8 is-large">
-                                <div class="switch-container">
-                                    <label class="switch"><input type="checkbox"><span class="switch-button"></span> </label>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4> Show my activities ?</h4>
-                                <div>  </div>
-                            </div>
-                            <div class="switches-list -mt-8 is-large">
-                                <div class="switch-container">
-                                    <label class="switch"><input type="checkbox" checked><span class="switch-button"></span> </label>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4> Search engines?</h4>
-                                <div>  </div>
-                            </div>
-                            <div class="switches-list -mt-8 is-large">
-                                <div class="switch-container">
-                                    <label class="switch"><input type="checkbox"><span class="switch-button"></span> </label>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h4> Allow Commenting?</h4>
-                                <div>  </div>
+                    v>
                             </div>
                             <div class="switches-list -mt-8 is-large">
                                 <div class="switch-container">
