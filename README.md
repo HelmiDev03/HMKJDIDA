@@ -114,7 +114,7 @@ Deployment URL: helmimahdikhalil.onrender.com
  
 
 
-## Friend Finder Documentation
+## HMKSocialHub Documentation
 Table of Contents
 + General Details
 + Requirements
