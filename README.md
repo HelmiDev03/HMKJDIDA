@@ -103,7 +103,7 @@ urlpatterns=[
     
     
 ### Render Deployment
-Deployment URL: https://friendfinder-socialsite.herokuapp.com/
+Deployment URL: helmimahdikhalil.onrender.com
     
 ## Testing
 + Manual Testing
