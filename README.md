@@ -102,8 +102,7 @@ urlpatterns=[
     + password_reset_sent.html
     
     
-### Render Deployment
-Deployment URL: helmimahdikhalil.onrender.com
+
     
 ## Testing
 + Manual Testing
