@@ -290,7 +290,7 @@ python manage.py createsuperuser
 ```bash
 python manage.py runserver
 ```
-Open up a browser and open the url giv, then you will see the application.    
+Open up a browser and open the url given, then you will see the application.    
 
 
 
