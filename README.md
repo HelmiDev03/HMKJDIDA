@@ -271,7 +271,7 @@ Once activated, the virtual environment’s bin directory will be added at the b
 ```
 Now that the virtual environment is activated, we can start installing, upgrading, and removing packages using pip.
 
-6. The first step is to install the modules needed to run our applications
+6. The first step is to install the modules needed to run our application
 ```bash
 pip -r install requirements.txt
 ```
