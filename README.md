@@ -133,7 +133,7 @@ Table of Contents
 HMKSocialHub is a social networking app developed with Django  and Python  This web apps has smoother functionalities of following friends to your profile from a suggested user list. Also it lets you maintain your social profile and sharing your thoughts in the timeline.
 
 ## Requirements
-To run the web app properly you need to follow the following requirements and have them installed in the virtual environment(pip install -r requirements.txt ) .
+To run the web app properly you need to follow the following requirements and have them installed in the virtual environment ( pip install -r requirements.txt ) .
 
 + asgiref==3.6.0
 + astroid==2.15.0
