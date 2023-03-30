@@ -32,6 +32,8 @@
 
 ![alt text](./navigation.png)
 
+
+
 ## Technological considerations
 
 + Django 4.1.7
@@ -49,6 +51,10 @@
 + Post Model
 + LikePost Model
 + FollowersCount Model
+
+
+## Simple Explanantion Diagram
+![alt text](./my_project_visualized.png) 
 
 ### URIs
 Completed URLS:
