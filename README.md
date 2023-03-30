@@ -40,12 +40,12 @@
 + Python 3.10.5
 + Bootstrap 
 + Render
-+ PostgreSQL 11
++ PostgreSQL 15
 
 ### App used
 + Core
 
-### Needed Django models and their attributes
+### Needed Django models 
 + User Model
 + Profile Model
 + Post Model
@@ -178,7 +178,7 @@ To run the web app properly you need to follow the following requirements and ha
 
 ## Configurations
 
-As mentioned earlier the web app requires Django 2.1 and Python 3.7. We have used PostGREsql database for this application. The version that was used in this app is PostGREsql 11 also pgAdmin version 4 is used while developing the product. 
+As mentioned earlier the web app requires Django 4.1.7 and Python 3.10.5 We have used PostgreSQL 15  database for this application. 
 The installed apps of the webapp as mentioned below.
 
 
@@ -211,9 +211,9 @@ At the very beginning the app will direct you to signin into app. You can login 
 
 
 
-## User
+## Core
 
-The user app has all the functionalities like login, signup, viewing profile and editing   profile. The proper usage of the app comes with the initial usage of the app. The very beginning the app routes user to login in the app. The app used Django’s in built auth form in order to ensure the security of the user.
+The Core app has all the functionalities like login, signup, viewing profile and editing   profile. The proper usage of the app comes with the initial usage of the app. The very beginning the app routes user to login in the app. The app used Django’s in built auth form in order to ensure the security of the user.
 
    + Login:
    
