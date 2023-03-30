@@ -267,7 +267,7 @@ source myenv/bin/activate.
 ```
 Once activated, the virtual environment’s bin directory will be added at the beginning of the $PATH variable. Also your shell’s prompt will change and it will show the name of the virtual environment you’re currently using. In our case that is 
 ```bash 
-(my-project-env) $
+(myenv) $
 ```
 Now that the virtual environment is activated, we can start installing, upgrading, and removing packages using pip.
 
