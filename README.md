@@ -259,7 +259,7 @@ sudo apt install python3-venv
 ```bash
 python3 -m venv myenv
 ```
-The command above creates a directory called myenv, which contains a copy of the Python binary, the Pip package manager, the standard Python library and other supporting files , read more here https://pypi.org/project/pip/
+The command above creates a directory called myenv, which contains a copy of the Python binary, the Pip package manager, the standard Python library and other supporting files , read more here <a targetr="_blank" href="https://pypi.org/project/pip/">pip-PyPI</a>
 
 5. To start using this virtual environment, you need to activate it by running the activate script:
 ```bash
