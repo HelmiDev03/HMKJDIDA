@@ -38,7 +38,6 @@
 
 + Django 4.1.7
 + Python 3.10.5
-+ Bootstrap 
 + Render
 + PostgreSQL 15
 
