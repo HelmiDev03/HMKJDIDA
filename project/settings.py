@@ -193,8 +193,8 @@ TIME_FORMAT = 'H:i'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'helmilakdhare@gmail.com'
-EMAIL_HOST_PASSWORD = 'inythtnuzcjdjpra'
+EMAIL_HOST_USER = 'helmidevproduction@gmail.com'
+EMAIL_HOST_PASSWORD = 'syjymzdiirzjyrzi' 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
