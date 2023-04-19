@@ -140,7 +140,7 @@ Table of Contents
 HMKSocialHub is a social networking app developed with Django  and Python  This web apps has smoother functionalities of following friends to your profile from a suggested user list. Also it lets you maintain your social profile and sharing your thoughts in the timeline.
 
 ## Requirements
-To run the web app properly you need to follow the following requirements and have them installed in the virtual environment ( pip install -r requirements.txt ) .
+To run the web app properly you need to follow the following requirements and have them installed in the virtual environment. 
 
 + asgiref==3.6.0
 + astroid==2.15.0
@@ -247,7 +247,7 @@ For styling the web app we have used standard CSS that can be accessed in the ma
 ## Run Locally
 1. Clone or download this repository and open it in your editor of choice: 
 ```bash
-git clone https://github.com/HelmiDev03/HMKJDIDA.git
+git clone https://github.com/HelmiDev03/Social-Media-Web-App.git
 ```
 2. cd into project repository.
 
@@ -276,7 +276,7 @@ Now that the virtual environment is activated, we can start installing, upgradin
 ```bash
 pip -r install requirements.txt
 ```
-Modify `HMKJDIDA/project/setting.py` with database settings if you want to connect database other than PostgreSQL
+Modify `Social-Media-Web-App/project/setting.py` with database settings if you want to connect database other than PostgreSQL
 
 
 7. Run the following commands in the root folder , to create the needed tabels for our models
