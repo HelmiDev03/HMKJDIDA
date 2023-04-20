@@ -244,55 +244,6 @@ In the update status the user can give the content of the status and click the p
 
 ## Styling and UI components
 For styling the web app we have used standard CSS that can be accessed in the main.css file. We have used the Bootstrap 4 UI components like button, navigation bar, form components and menu bar components. There are some custom CSS also that were used in the app.
-## Run Locally
-1. Clone or download this repository and open it in your editor of choice: 
-```bash
-git clone https://github.com/HelmiDev03/Social-Media-Web-App.git
-```
-2. cd into project repository.
-
-3. To get this project up and running you should start by having Python installed on your computer. It's advised you create a virtual environment to store your projects dependencies separately. You can install virtualenv with
-
-```bash
-sudo apt install python3-venv
-```
-4. Within the directory run the following command to create your new virtual environment:
-```bash
-python3 -m venv myenv
-```
-The command above creates a directory called myenv, which contains a copy of the Python binary, the Pip package manager, the standard Python library and other supporting files , read more here <a targetr="_blank" href="https://pypi.org/project/pip/">pip-PyPI</a>
-
-5. To start using this virtual environment, you need to activate it by running the activate script:
-```bash
-source myenv/bin/activate.
-```
-Once activated, the virtual environment’s bin directory will be added at the beginning of the $PATH variable. Also your shell’s prompt will change and it will show the name of the virtual environment you’re currently using. In our case that is 
-```bash 
-(myenv) $
-```
-Now that the virtual environment is activated, we can start installing, upgrading, and removing packages using pip.
-
-6. The first step is to install the modules needed to run our application
-```bash
-pip -r install requirements.txt
-```
-Modify `Social-Media-Web-App/project/setting.py` with database settings if you want to connect database other than PostgreSQL
-
-
-7. Run the following commands in the root folder , to create the needed tabels for our models
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-8. Also create a superuser by :
-```bash
-python manage.py createsuperuser
-```
-9. To get start runserver localy by:
-```bash
-python manage.py runserver
-```
-Open up a browser and open the url given, then you will see the application.    
 
 
 
