@@ -134,7 +134,7 @@ Table of Contents
 + Styling and UI components
     + Custom CSS
 + Figma Design
-    + Pages Layout is made entirely with Figma by <a href="https://github.com/khalil-ben-makhlouf">Khallil</a>  , <a href ="https://www.figma.com/proto/DyegsicRH5NXG7nIipTAx0/Khalil?node-id=1-3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=8%3A15&show-proto-sidebar=1&fbclid=IwAR00xpVL6oLM3NbJ5oi6yT9Jv6hMKCEvKDH4ePl0pZzg0YSmnCIbf-JuDhU">  Chek It Here</a>    
+    + Pages Layout is made entirely with Figma by <a href="https://github.com/khalil-ben-makhlouf">Khallil</a>.
     
 ## General Guidelines
 HMKSocialHub is a social networking app developed with Django  and Python  This web apps has smoother functionalities of following friends to your profile from a suggested user list. Also it lets you maintain your social profile and sharing your thoughts in the timeline.
